@@ -101,12 +101,6 @@ const Layout = () => {
                         </ListItemIcon>
                         <ListItemText primary="Medicaciones" />
                     </ListItem>
-                    <ListItem button component={Link} to="/informes">
-                        <ListItemIcon>
-                            <AssessmentIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Informes" />
-                    </ListItem>
                 </List>
                 <Divider />
                 <List>
