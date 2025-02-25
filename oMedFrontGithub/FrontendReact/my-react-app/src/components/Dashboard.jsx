@@ -6,15 +6,7 @@ import {
     Typography,
     Box,
     Avatar,
-    Card,
-    CardHeader,
-    CardContent,
-    Chip,
     LinearProgress,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemIcon,
     Button,
     Dialog,
     DialogTitle,
@@ -31,12 +23,11 @@ import {
 
 // Importación de íconos
 import {
-    CheckCircle as CheckCircleIcon,
-    Cancel as CancelIcon,
-    AccessTime as AccessTimeIcon,
-    Medication as MedicationIcon,
     Add as AddIcon
 } from '@mui/icons-material';
+
+// Importamos el componente de tarjeta de medicación
+import TreatmentCard from './TreatmentCard.jsx';
 
 const Dashboard = () => {
     // Estados para los datos
@@ -77,16 +68,35 @@ const Dashboard = () => {
                 ];
 
                 const dosesData = [
-                    { id: 1, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-25T08:00', takenTime: '2025-02-25T08:05' },
-                    { id: 2, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-25T16:00', takenTime: '2025-02-25T16:10' },
-                    { id: 3, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-26T00:00', takenTime: null },
-                    { id: 4, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-25T09:00', takenTime: '2025-02-25T09:15' },
-                    { id: 5, medicationId: 3, patientId: 2, taken: true, scheduledTime: '2025-02-25T21:00', takenTime: '2025-02-25T21:05' },
-                    { id: 6, medicationId: 4, patientId: 2, taken: true, scheduledTime: '2025-02-25T09:00', takenTime: '2025-02-25T09:10' },
-                    { id: 7, medicationId: 4, patientId: 2, taken: false, scheduledTime: '2025-02-25T21:00', takenTime: null },
-                    { id: 8, medicationId: 5, patientId: 3, taken: true, scheduledTime: '2025-02-25T08:00', takenTime: '2025-02-25T08:30' },
-                    { id: 9, medicationId: 6, patientId: 3, taken: true, scheduledTime: '2025-02-25T08:00', takenTime: '2025-02-25T08:30' },
-                    { id: 10, medicationId: 6, patientId: 3, taken: false, scheduledTime: '2025-02-25T20:00', takenTime: null }
+                    // Dosis de hace 3 días (todas tomadas)
+                    { id: 1, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-22T08:00', takenTime: '2025-02-22T08:05' },
+                    { id: 2, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-22T16:00', takenTime: '2025-02-22T16:10' },
+                    { id: 3, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-23T00:00', takenTime: '2025-02-23T00:15' },
+
+                    // Dosis de hace 2 días (una perdida)
+                    { id: 4, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-23T08:00', takenTime: '2025-02-23T08:12' },
+                    { id: 5, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-23T16:00', takenTime: null },
+                    { id: 6, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-24T00:00', takenTime: '2025-02-24T00:05' },
+
+                    // Dosis de ayer (una perdida)
+                    { id: 7, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-24T08:00', takenTime: '2025-02-24T08:02' },
+                    { id: 8, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-24T16:00', takenTime: '2025-02-24T16:30' },
+                    { id: 9, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-24T23:59', takenTime: null },
+
+                    // Dosis de hoy (25 de febrero, una tomada, una pendiente y una programada)
+                    { id: 10, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-25T08:00', takenTime: '2025-02-25T08:15' },
+                    { id: 11, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-25T16:00', takenTime: null },
+                    { id: 12, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-26T00:00', takenTime: null },
+
+                    // Dosis de mañana (todas programadas)
+                    { id: 13, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-26T08:00', takenTime: null },
+                    { id: 14, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-26T16:00', takenTime: null },
+                    { id: 15, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-27T00:00', takenTime: null },
+
+                    // Dosis de pasado mañana (todas programadas)
+                    { id: 16, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-27T08:00', takenTime: null },
+                    { id: 17, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-27T16:00', takenTime: null },
+                    { id: 18, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-28T00:00', takenTime: null }
                 ];
 
                 setPatients(patientsData);
@@ -160,11 +170,6 @@ const Dashboard = () => {
             .slice(0, limit);
     };
 
-    // Función para calcular el progreso del tratamiento
-    const calculateProgress = (remainingDays, totalDays) => {
-        return ((totalDays - remainingDays) / totalDays) * 100;
-    };
-
     return (
         <>
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -209,77 +214,14 @@ const Dashboard = () => {
                                     {medications
                                         .filter(med => med.patientId === patient.id)
                                         .map(medication => (
-                                            <Grid item xs={12} md={6} lg={4} key={medication.id}>
-                                                <Card>
-                                                    <CardHeader
-                                                        avatar={
-                                                            <Avatar sx={{ bgcolor: 'secondary.main' }}>
-                                                                <MedicationIcon />
-                                                            </Avatar>
-                                                        }
-                                                        title={medication.name}
-                                                        subheader={`${medication.dosage} - ${medication.frequency}`}
-                                                    />
-                                                    <CardContent>
-                                                        <Typography variant="body2" color="text.secondary" gutterBottom>
-                                                            Progreso del tratamiento:
-                                                        </Typography>
-                                                        <Box display="flex" alignItems="center">
-                                                            <Box width="100%" mr={1}>
-                                                                <LinearProgress
-                                                                    variant="determinate"
-                                                                    value={calculateProgress(medication.remainingDays, medication.totalDays)}
-                                                                />
-                                                            </Box>
-                                                            <Box minWidth={35}>
-                                                                <Typography variant="body2" color="text.secondary">
-                                                                    {medication.remainingDays} días
-                                                                </Typography>
-                                                            </Box>
-                                                        </Box>
-
-                                                        <Typography variant="body2" color="text.secondary" sx={{ mt: 2, mb: 1 }}>
-                                                            Últimas dosis:
-                                                        </Typography>
-                                                        <List dense>
-                                                            {getLatestDoses(medication.id).map((dose) => (
-                                                                <ListItem key={dose.id}>
-                                                                    <ListItemIcon>
-                                                                        {dose.taken ? (
-                                                                            <CheckCircleIcon sx={{ color: 'green' }} />
-                                                                        ) : (
-                                                                            new Date(dose.scheduledTime) < new Date() ? (
-                                                                                <CancelIcon sx={{ color: 'red' }} />
-                                                                            ) : (
-                                                                                <AccessTimeIcon sx={{ color: 'orange' }} />
-                                                                            )
-                                                                        )}
-                                                                    </ListItemIcon>
-                                                                    <ListItemText
-                                                                        primary={new Date(dose.scheduledTime).toLocaleTimeString('es-ES', {
-                                                                            hour: '2-digit',
-                                                                            minute: '2-digit',
-                                                                            day: '2-digit',
-                                                                            month: '2-digit'
-                                                                        })}
-                                                                        secondary={dose.taken ? 'Tomado' : 'Pendiente'}
-                                                                    />
-                                                                    {dose.taken && dose.takenTime && (
-                                                                        <Chip
-                                                                            size="small"
-                                                                            label={`${new Date(dose.takenTime).toLocaleTimeString('es-ES', {
-                                                                                hour: '2-digit',
-                                                                                minute: '2-digit'
-                                                                            })}`}
-                                                                            color="success"
-                                                                            variant="outlined"
-                                                                        />
-                                                                    )}
-                                                                </ListItem>
-                                                            ))}
-                                                        </List>
-                                                    </CardContent>
-                                                </Card>
+                                            <Grid item xs={12} md={6} lg={5} key={medication.id}>
+                                                <box sx={{ width: '800px', height: '300px' }}>
+                                                    <TreatmentCard
+                                                    medication={medication}
+                                                    doses={getLatestDoses(medication.id)}
+                                                    width="100%"
+                                                />
+                                                </box>
                                             </Grid>
                                         ))}
                                 </Grid>
