@@ -31,8 +31,10 @@ import {
     Logout as LogoutIcon
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+/*Importar hoja de estilos*/
+import '../style/Layout.css';
 
-const drawerWidth = 280;
+const drawerWidth = 250;
 
 const Layout = () => {
     const [open, setOpen] = useState(true);
