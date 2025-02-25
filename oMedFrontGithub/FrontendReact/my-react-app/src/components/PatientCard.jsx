@@ -27,7 +27,7 @@ const PatientCard = ({ patient, medications, doses }) => {
 
             <Grid container spacing={3}>
                 {medications.map(medication => (
-                    <Grid item xs={12} md={6} lg={5} key={medication.id}>
+                    <Grid item xs={12} md={6} lg={5.5} key={medication.id}>
                         <TreatmentCard
                             medication={medication}
                             doses={getLatestDoses(medication.id)}

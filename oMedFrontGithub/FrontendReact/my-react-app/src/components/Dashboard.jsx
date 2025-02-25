@@ -35,51 +35,52 @@ const Dashboard = () => {
 
 
                 const dosesData = [
-                    // Dosis de Paracetamol (Paciente 1)
-                    { id: 1, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-15T08:00', takenTime: '2025-02-15T08:05' },
-                    { id: 2, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-15T16:00', takenTime: '2025-02-15T16:10' },
-                    { id: 3, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-16T00:00', takenTime: null },
-                    { id: 4, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-16T08:00', takenTime: '2025-02-16T08:12' },
-                    { id: 5, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-16T16:00', takenTime: null },
-                    { id: 6, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-17T00:00', takenTime: '2025-02-17T00:15' },
-                    { id: 7, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-17T08:00', takenTime: '2025-02-17T08:05' },
-                    { id: 8, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-17T16:00', takenTime: '2025-02-17T16:30' },
-                    { id: 9, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-18T00:00', takenTime: null },
+                    // --- Dosis de Paracetamol (Paciente 1) ---
+                    { id: 1, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-10T08:00', takenTime: '2025-02-10T08:05' },
+                    { id: 2, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-10T16:00', takenTime: '2025-02-10T16:10' },
+                    { id: 3, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-11T00:00', takenTime: '2025-02-11T00:15' },
+                    { id: 4, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-11T08:00', takenTime: null },
+                    { id: 5, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-11T16:00', takenTime: '2025-02-11T16:30' },
+                    { id: 6, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-12T00:00', takenTime: '2025-02-12T00:20' },
+                    { id: 7, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-12T08:00', takenTime: null },
+                    { id: 8, medicationId: 1, patientId: 1, taken: true, scheduledTime: '2025-02-12T16:00', takenTime: '2025-02-12T16:45' },
+                    { id: 9, medicationId: 1, patientId: 1, taken: false, scheduledTime: '2025-02-13T00:00', takenTime: null },
 
-                    // Dosis de Omeprazol (Paciente 1)
-                    { id: 10, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-15T08:00', takenTime: '2025-02-15T08:05' },
-                    { id: 11, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-16T08:00', takenTime: '2025-02-16T08:10' },
-                    { id: 12, medicationId: 2, patientId: 1, taken: false, scheduledTime: '2025-02-17T08:00', takenTime: null },
+                    // --- Dosis de Omeprazol (Paciente 1) ---
+                    { id: 10, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-10T08:00', takenTime: '2025-02-10T08:05' },
+                    { id: 11, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-11T08:00', takenTime: '2025-02-11T08:10' },
+                    { id: 12, medicationId: 2, patientId: 1, taken: false, scheduledTime: '2025-02-12T08:00', takenTime: null },
+                    { id: 13, medicationId: 2, patientId: 1, taken: true, scheduledTime: '2025-02-13T08:00', takenTime: '2025-02-13T08:15' },
 
-                    // Dosis de Simvastatina (Paciente 2)
-                    { id: 13, medicationId: 3, patientId: 2, taken: true, scheduledTime: '2025-02-14T21:00', takenTime: '2025-02-14T21:15' },
-                    { id: 14, medicationId: 3, patientId: 2, taken: true, scheduledTime: '2025-02-15T21:00', takenTime: '2025-02-15T21:05' },
-                    { id: 15, medicationId: 3, patientId: 2, taken: false, scheduledTime: '2025-02-16T21:00', takenTime: null },
+                    // --- Dosis de Simvastatina (Paciente 2) ---
+                    { id: 14, medicationId: 3, patientId: 2, taken: true, scheduledTime: '2025-02-09T21:00', takenTime: '2025-02-09T21:10' },
+                    { id: 15, medicationId: 3, patientId: 2, taken: true, scheduledTime: '2025-02-10T21:00', takenTime: '2025-02-10T21:05' },
+                    { id: 16, medicationId: 3, patientId: 2, taken: false, scheduledTime: '2025-02-11T21:00', takenTime: null },
 
-                    // Dosis de Losartán (Paciente 2)
-                    { id: 16, medicationId: 4, patientId: 2, taken: true, scheduledTime: '2025-02-14T10:00', takenTime: '2025-02-14T10:05' },
-                    { id: 17, medicationId: 4, patientId: 2, taken: false, scheduledTime: '2025-02-15T10:00', takenTime: null },
-                    { id: 18, medicationId: 4, patientId: 2, taken: true, scheduledTime: '2025-02-16T10:00', takenTime: '2025-02-16T10:10' },
+                    // --- Dosis de Losartán (Paciente 2) ---
+                    { id: 17, medicationId: 4, patientId: 2, taken: true, scheduledTime: '2025-02-09T10:00', takenTime: '2025-02-09T10:10' },
+                    { id: 18, medicationId: 4, patientId: 2, taken: false, scheduledTime: '2025-02-10T10:00', takenTime: null },
+                    { id: 19, medicationId: 4, patientId: 2, taken: true, scheduledTime: '2025-02-11T10:00', takenTime: '2025-02-11T10:30' },
 
-                    // Dosis de Levotiroxina (Paciente 3)
-                    { id: 19, medicationId: 5, patientId: 3, taken: true, scheduledTime: '2025-02-12T07:00', takenTime: '2025-02-12T07:15' },
-                    { id: 20, medicationId: 5, patientId: 3, taken: true, scheduledTime: '2025-02-13T07:00', takenTime: '2025-02-13T07:20' },
+                    // --- Dosis de Levotiroxina (Paciente 3) ---
+                    { id: 20, medicationId: 5, patientId: 3, taken: true, scheduledTime: '2025-02-08T07:00', takenTime: '2025-02-08T07:15' },
+                    { id: 21, medicationId: 5, patientId: 3, taken: true, scheduledTime: '2025-02-09T07:00', takenTime: '2025-02-09T07:10' },
 
-                    // Dosis de Metformina (Paciente 3)
-                    { id: 21, medicationId: 6, patientId: 3, taken: false, scheduledTime: '2025-02-11T09:00', takenTime: null },
-                    { id: 22, medicationId: 6, patientId: 3, taken: true, scheduledTime: '2025-02-12T09:00', takenTime: '2025-02-12T09:10' },
+                    // --- Dosis de Metformina (Paciente 3) ---
+                    { id: 22, medicationId: 6, patientId: 3, taken: false, scheduledTime: '2025-02-07T09:00', takenTime: null },
+                    { id: 23, medicationId: 6, patientId: 3, taken: true, scheduledTime: '2025-02-08T09:00', takenTime: '2025-02-08T09:15' },
 
-                    // Dosis de Insulina (Paciente 7)
-                    { id: 23, medicationId: 13, patientId: 7, taken: true, scheduledTime: '2025-02-15T08:00', takenTime: '2025-02-15T08:10' },
-                    { id: 24, medicationId: 13, patientId: 7, taken: true, scheduledTime: '2025-02-15T20:00', takenTime: '2025-02-15T20:15' },
-                    { id: 25, medicationId: 13, patientId: 7, taken: false, scheduledTime: '2025-02-16T08:00', takenTime: null },
+                    // --- Dosis de Insulina (Paciente 7) ---
+                    { id: 24, medicationId: 13, patientId: 7, taken: true, scheduledTime: '2025-02-10T08:00', takenTime: '2025-02-10T08:10' },
+                    { id: 25, medicationId: 13, patientId: 7, taken: true, scheduledTime: '2025-02-10T20:00', takenTime: '2025-02-10T20:15' },
+                    { id: 26, medicationId: 13, patientId: 7, taken: false, scheduledTime: '2025-02-11T08:00', takenTime: null },
 
-                    // Dosis de Salbutamol (Paciente 8)
-                    { id: 26, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-10T06:00', takenTime: '2025-02-10T06:10' },
-                    { id: 27, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-10T12:00', takenTime: '2025-02-10T12:05' },
-                    { id: 28, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-10T18:00', takenTime: '2025-02-10T18:20' },
-                    { id: 29, medicationId: 15, patientId: 8, taken: false, scheduledTime: '2025-02-11T06:00', takenTime: null },
-                    { id: 30, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-11T12:00', takenTime: '2025-02-11T12:10' }
+                    // --- Dosis de Salbutamol (Paciente 8) ---
+                    { id: 27, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-06T06:00', takenTime: '2025-02-06T06:10' },
+                    { id: 28, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-06T12:00', takenTime: '2025-02-06T12:05' },
+                    { id: 29, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-06T18:00', takenTime: '2025-02-06T18:20' },
+                    { id: 30, medicationId: 15, patientId: 8, taken: false, scheduledTime: '2025-02-07T06:00', takenTime: null },
+                    { id: 31, medicationId: 15, patientId: 8, taken: true, scheduledTime: '2025-02-07T12:00', takenTime: '2025-02-07T12:10' }
                 ];
 
 

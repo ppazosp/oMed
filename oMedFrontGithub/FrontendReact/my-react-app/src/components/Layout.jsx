@@ -34,7 +34,7 @@ import { Link } from 'react-router-dom';
 /*Importar hoja de estilos*/
 import '../style/Layout.css';
 
-const drawerWidth = 100;
+const drawerWidth = 280;
 
 const Layout = () => {
     const [open, setOpen] = useState(true);
