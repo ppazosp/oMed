@@ -122,7 +122,7 @@ const TreatmentCard = ({ medication, doses }) => {
     }
 
     return (
-        <Card>
+        <Card sx={{ borderRadius: 5 }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: 'secondary.main' }}>
@@ -182,7 +182,8 @@ const TreatmentCard = ({ medication, doses }) => {
                                         border: isNearest ||
                                         (isToday && Math.abs(doseDate.getTime() - now.getTime()) < 8 * 60 * 60 * 1000) ?
                                             '1px solid orange' : '1px solid #eee',
-                                        width: '60px'
+                                        width: '50px',
+                                        borderRadius: 3
                                     }}
                                 >
                                     <Box sx={{ textAlign: 'center', mb: 1 }}>
@@ -221,43 +222,6 @@ const TreatmentCard = ({ medication, doses }) => {
                         );
                     })}
                 </Grid>
-
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 2, mb: 1 }}>
-                    Últimas dosis:
-                </Typography>
-                <List dense>
-                    {sortedDoses.filter(dose => new Date(dose.scheduledTime) <= now).slice(-3).map((dose) => (
-                        <ListItem key={dose.id}>
-                            <ListItemIcon>
-                                {dose.taken ? (
-                                    <CheckCircleIcon sx={{ color: 'green' }} />
-                                ) : (
-                                    <CancelIcon sx={{ color: 'red' }} />
-                                )}
-                            </ListItemIcon>
-                            <ListItemText
-                                primary={new Date(dose.scheduledTime).toLocaleTimeString('es-ES', {
-                                    hour: '2-digit',
-                                    minute: '2-digit',
-                                    day: '2-digit',
-                                    month: '2-digit'
-                                })}
-                                secondary={dose.taken ? 'Tomado' : 'Pendiente'}
-                            />
-                            {dose.taken && dose.takenTime && (
-                                <Chip
-                                    size="small"
-                                    label={`${new Date(dose.takenTime).toLocaleTimeString('es-ES', {
-                                        hour: '2-digit',
-                                        minute: '2-digit'
-                                    })}`}
-                                    color="success"
-                                    variant="outlined"
-                                />
-                            )}
-                        </ListItem>
-                    ))}
-                </List>
             </CardContent>
         </Card>
     );

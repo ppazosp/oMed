@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, Box, Avatar, Typography, Grid } from '@mui/material';
 import TreatmentCard from './TreatmentCard.jsx';
+import "../style/PatientCard.css";
 
 const PatientCard = ({ patient, medications, doses }) => {
     const getLatestDoses = (medicationId, limit = 3) => {
@@ -11,7 +12,7 @@ const PatientCard = ({ patient, medications, doses }) => {
     };
 
     return (
-        <Paper elevation={3} sx={{ p: 3, mb: 4 }}>
+        <Paper elevation={3} sx={{ p: 3, mb: 4 , borderRadius: 6, boxShadow: 3 , background: 'linear-gradient(to right, #FEC9A7, #FFEAB9)' }}>
             <Box display="flex" alignItems="center" mb={2}>
                 <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
                     {patient.avatar}
