@@ -67,6 +67,7 @@ const TreatmentCard = ({ medication, doses, color }) => {
                         <LinearProgress
                             variant="determinate"
                             value={calculateProgress(medication.remainingDays, medication.totalDays)}
+                            sx={{ '& .MuiLinearProgress-bar': { backgroundColor: color }, bgcolor: '#F5F6F1' }}
                         />
                     </Box>
                     <Box minWidth={35}>
@@ -114,9 +115,9 @@ const TreatmentCard = ({ medication, doses, color }) => {
                                     <Box sx={{ textAlign: 'center', mb: 1 }}>
                                         {isPast ? (
                                             dose.taken ? (
-                                                <CheckCircleIcon sx={{ color: 'green' }} />
+                                                <CheckCircleIcon sx={{ color: '#8CFCA4' }} />
                                             ) : (
-                                                <CancelIcon sx={{ color: 'red' }} />
+                                                <CancelIcon sx={{ color: '#FF6961' }} />
                                             )
                                         ) : (
                                             <AccessTimeIcon sx={{ color: 'orange' }} />

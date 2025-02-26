@@ -135,7 +135,8 @@ const Layout = () => {
                 flexGrow: 1,
                 display: 'flex',
                 flexDirection: 'column',
-                bgcolor: '#e6e6e6'
+                background: 'linear-gradient(to bottom, #e6e6e6, #c3c3c3)',
+
             }}>
                 <AppBar
                     position="fixed"

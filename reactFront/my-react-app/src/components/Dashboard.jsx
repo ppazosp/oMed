@@ -132,7 +132,7 @@ const Dashboard = () => {
                 <>
                     <Box display="flex" justifyContent="space-between" alignItems="center" mb={2} sx={{ width: '100%' }}>
                         <Typography variant="h4" component="h1" gutterBottom>
-                            Dashboard de Medicaciones
+                            Dashboard de Tratamientos
                         </Typography>
                         <Button variant="contained" startIcon={<AddIcon />}>
                             Registrar Dosis
