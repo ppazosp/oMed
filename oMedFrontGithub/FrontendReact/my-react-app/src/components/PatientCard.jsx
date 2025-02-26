@@ -115,34 +115,34 @@ const PatientCard = ({ patient, medications, doses }) => {
                     </IconButton>
                 )}
 
-                {canScrollLeft && (
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            top: 0,
-                            bottom: 0,
-                            left: 0,
-                            width: '20px',
-                            background: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0))',
-                            zIndex: 1,
-                            pointerEvents: 'none'
-                        }}
-                    />
-                )}
-                {canScrollRight && (
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            top: 0,
-                            bottom: 0,
-                            right: 0,
-                            width: '20px',
-                            background: 'linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0))',
-                            zIndex: 1,
-                            pointerEvents: 'none'
-                        }}
-                    />
-                )}
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        width: '20px',
+                        background: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0))',
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                        opacity: canScrollLeft ? 1 : 0,
+                        transition: 'opacity 0.6s'
+                    }}
+                />
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        bottom: 0,
+                        right: 0,
+                        width: '20px',
+                        background: 'linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0))',
+                        zIndex: 1,
+                        pointerEvents: 'none',
+                        opacity: canScrollRight ? 1 : 0,
+                        transition: 'opacity 0.6s'
+                    }}
+                />
             </Box>
         </Paper>
     );

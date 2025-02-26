@@ -4,6 +4,8 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Layout from './components/Layout.jsx';
+import Family from "./components/Family.jsx";
+import Medicine from "./components/Medicine.jsx";
 
 // Tema personalizado
 const theme = createTheme({
@@ -49,6 +51,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Dashboard />} />
+                        <Route path={"/pacientes"} index element={<Family />} />
+                        <Route path={"/medicaciones"} element={<Medicine />} />
                         {/* Aquí puedes añadir más rutas según necesites */}
                         {/* <Route path="/pacientes" element={<Patients />} /> */}
                         {/* <Route path="/medicaciones" element={<Medications />} /> */}
