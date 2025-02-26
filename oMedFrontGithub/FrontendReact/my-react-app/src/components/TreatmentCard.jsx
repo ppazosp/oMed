@@ -17,8 +17,9 @@ import {
     AccessTime as AccessTimeIcon,
     Medication as MedicationIcon
 } from '@mui/icons-material';
+import { green } from '@mui/material/colors';
 
-const TreatmentCard = ({ medication, doses }) => {
+const TreatmentCard = ({ medication, doses, color }) => {
     const calculateProgress = (remainingDays, totalDays) => {
         return ((totalDays - remainingDays) / totalDays) * 100;
     };
@@ -47,10 +48,10 @@ const TreatmentCard = ({ medication, doses }) => {
     }
 
     return (
-        <Card sx={{ borderRadius: 5 }}>
+        <Card sx={{ borderRadius: 5, background: `linear-gradient(to top, ${color}, white)`  }}>
             <CardHeader
                 avatar={
-                    <Avatar sx={{ bgcolor: 'secondary.main' }}>
+                    <Avatar sx={{ bgcolor: color }}>
                         <MedicationIcon />
                     </Avatar>
                 }

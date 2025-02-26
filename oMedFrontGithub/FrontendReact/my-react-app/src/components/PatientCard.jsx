@@ -1,10 +1,11 @@
+// PatientCard.jsx
 import React, { useRef, useState, useEffect } from 'react';
 import { Paper, Box, Avatar, Typography, IconButton } from '@mui/material';
 import TreatmentCard from './TreatmentCard.jsx';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import '../style/PatientCard.css';
 
-const PatientCard = ({ patient, medications, doses }) => {
+const PatientCard = ({ patient, medications, doses, treatmentColors }) => {
     const scrollContainerRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(medications.length > 2);
@@ -46,7 +47,7 @@ const PatientCard = ({ patient, medications, doses }) => {
     }, [medications.length]);
 
     return (
-        <Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 6, boxShadow: 3, background: 'linear-gradient(to right, #FEC9A7, #FFEAB9)' }}>
+        <Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 6, boxShadow: 3, background: 'linear-gradient(to right, #F5F6F1, #EDECEC)' }}>
             <Box display="flex" alignItems="center" mb={2}>
                 <Avatar sx={{ bgcolor: 'primary.main', mr: 2 }}>
                     {patient.avatar}
@@ -93,6 +94,7 @@ const PatientCard = ({ patient, medications, doses }) => {
                             <TreatmentCard
                                 medication={medication}
                                 doses={getLatestDoses(medication.id)}
+                                color={treatmentColors[medication.name]}
                             />
                         </Box>
                     ))}

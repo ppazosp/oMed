@@ -9,6 +9,24 @@ const Dashboard = () => {
     const [doses, setDoses] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const treatmentColors = {
+        'Paracetamol': '#fcc7a6',
+        'Omeprazol': '#a4f6cc',
+        'Simvastatina': '#c3e9fc',
+        'Losartán': '#f096be',
+        'Levotiroxina': '#b39dda',
+        'Metformina': '#a4f6cc',
+        'Ibuprofeno': '#fcc7a6',
+        'Atorvastatina': '#a4f6cc',
+        'Lansoprazol': '#c3e9fc',
+        'Aspirina': '#f096be',
+        'Antihistamínico': '#A133FF',
+        'Antibiótico': '#a4f6cc',
+        'Insulina': '#fcc7a6',
+        'Metotrexato': '#a4f6cc',
+        'Salbutamol': '#c3e9fc'
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -17,6 +35,8 @@ const Dashboard = () => {
                     { id: 2, name: 'José García', relation: 'Padre', avatar: 'J' },
                     { id: 3, name: 'Carmen López', relation: 'Abuela', avatar: 'C' }
                 ];
+
+
 
                 const medicationsData = [
                     { id: 1, patientId: 1, name: 'Paracetamol', dosage: '500mg', frequency: 'Cada 8 horas', remainingDays: 7, totalDays: 10 },
@@ -125,6 +145,7 @@ const Dashboard = () => {
                             patient={patient}
                             medications={medications.filter(med => med.patientId === patient.id)}
                             doses={doses}
+                            treatmentColors={treatmentColors}
                         />
                     ))}
                 </>

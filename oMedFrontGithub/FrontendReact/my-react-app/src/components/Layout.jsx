@@ -68,8 +68,10 @@ const Layout = () => {
                     [`& .MuiDrawer-paper`]: {
                         width: drawerWidth,
                         boxSizing: 'border-box',
-                        bgcolor: '#fff',
-                        borderRight: '1px solid rgba(0, 0, 0, 0.08)'
+                        bgcolor: '#F5F6F1',
+                        borderRight: '1.5px solid rgba(0, 0, 0, 0.14)',
+                        boxShadow: '3px 0 5px rgba(0, 0, 0, 0.15)', // Agregar sombra aquí
+
                     },
                 }}
             >
@@ -133,18 +135,19 @@ const Layout = () => {
                 flexGrow: 1,
                 display: 'flex',
                 flexDirection: 'column',
-                bgcolor: 'background.default'
+                bgcolor: '#e6e6e6'
             }}>
                 <AppBar
                     position="fixed"
                     elevation={0}
                     sx={{
-                        bgcolor: 'background.default',
+                        bgcolor: '#e6e6e6',
                         color: 'text.primary',
                         borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
                         zIndex: (theme) => theme.zIndex.drawer - 1,
                         width: { sm: `calc(100% - ${drawerWidth}px)` },
                         ml: { sm: `${drawerWidth}px` },
+                        boxShadow: '3px 0 7px rgba(0, 0, 0, 0.15)'
                     }}
                 >
                     <Toolbar>
