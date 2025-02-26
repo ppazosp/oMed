@@ -123,14 +123,14 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Container maxWidth="xl"  sx={{mt: 2, mb: 2}}>
             {loading ? (
-                <Box sx={{ width: '100%' }}>
+                <Box>
                     <LinearProgress />
                 </Box>
             ) : (
                 <>
-                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={2} sx={{ width: '100%' }}>
                         <Typography variant="h4" component="h1" gutterBottom>
                             Dashboard de Medicaciones
                         </Typography>

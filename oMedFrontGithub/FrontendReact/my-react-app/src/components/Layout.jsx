@@ -160,7 +160,7 @@ const Layout = () => {
                                 onClick={handleNotifications}
                                 sx={{ mr: 2 }}
                             >
-                                <Badge badgeContent={3} color="secondary">
+                                <Badge badgeContent={3} color="primary">
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
