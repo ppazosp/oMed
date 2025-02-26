@@ -94,7 +94,7 @@ const TreatmentCard = ({ medication, doses }) => {
                                 <Paper
                                     elevation={1}
                                     sx={{
-                                        p: 1,
+                                        p: 2,
                                         display: 'flex',
                                         flexDirection: 'column',
                                         alignItems: 'center',

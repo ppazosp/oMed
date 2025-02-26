@@ -30,7 +30,11 @@ const Dashboard = () => {
                     { id: 9, patientId: 5, name: 'Lansoprazol', dosage: '15mg', frequency: 'Cada 24 horas', remainingDays: 14, totalDays: 30 },
                     { id: 10, patientId: 5, name: 'Aspirina', dosage: '100mg', frequency: 'Cada 24 horas', remainingDays: 12, totalDays: 30 },
                     { id: 11, patientId: 6, name: 'Antihistamínico', dosage: '10mg', frequency: 'Cada 12 horas', remainingDays: 8, totalDays: 14 },
-                    { id: 12, patientId: 6, name: 'Antibiótico', dosage: '500mg', frequency: 'Cada 8 horas', remainingDays: 5, totalDays: 7 }
+                    { id: 12, patientId: 6, name: 'Antibiótico', dosage: '500mg', frequency: 'Cada 8 horas', remainingDays: 5, totalDays: 7 },
+                    { id: 13, patientId: 1, name: 'Insulina', dosage: '10ml', frequency: 'Cada 12 horas', remainingDays: 3, totalDays: 7 },
+                    { id: 14, patientId: 2, name: 'Metotrexato', dosage: '2.5mg', frequency: 'Cada 24 horas', remainingDays: 5, totalDays: 7 },
+                    { id: 15, patientId: 1, name: 'Salbutamol', dosage: '100mcg', frequency: 'Cada 6 horas', remainingDays: 2, totalDays: 7 }
+
                 ];
 
 
