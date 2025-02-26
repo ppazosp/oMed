@@ -1,5 +1,4 @@
-// PatientCard.jsx
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Paper, Box, Avatar, Typography, IconButton } from '@mui/material';
 import TreatmentCard from './TreatmentCard.jsx';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
@@ -33,6 +32,19 @@ const PatientCard = ({ patient, medications, doses }) => {
         }
     };
 
+    useEffect(() => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const updateScrollButtons = () => {
+                setCanScrollLeft(container.scrollLeft > 0);
+                setCanScrollRight(container.scrollLeft < (container.scrollWidth - container.clientWidth));
+            };
+            updateScrollButtons();
+            container.addEventListener('scroll', updateScrollButtons);
+            return () => container.removeEventListener('scroll', updateScrollButtons);
+        }
+    }, [medications.length]);
+
     return (
         <Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 6, boxShadow: 3, background: 'linear-gradient(to right, #FEC9A7, #FFEAB9)' }}>
             <Box display="flex" alignItems="center" mb={2}>
@@ -47,7 +59,7 @@ const PatientCard = ({ patient, medications, doses }) => {
                 </Box>
             </Box>
 
-            <Box position="relative" sx={{ overflow: 'hidden'}}>
+            <Box position="relative" sx={{ overflow: 'hidden' }}>
                 {canScrollLeft && (
                     <IconButton
                         onClick={() => handleScroll('left')}
@@ -96,11 +108,40 @@ const PatientCard = ({ patient, medications, doses }) => {
                             transform: 'translateY(-60%)',
                             zIndex: 2,
                             bgcolor: 'rgba(0,0,0,0.1)',
-                            '&:hover': { bgcolor: 'rgba(0,0,0,0.3)'}
+                            '&:hover': { bgcolor: 'rgba(0,0,0,0.3)' }
                         }}
                     >
                         <ArrowForwardIos />
                     </IconButton>
+                )}
+
+                {canScrollLeft && (
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            bottom: 0,
+                            left: 0,
+                            width: '20px',
+                            background: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0))',
+                            zIndex: 1,
+                            pointerEvents: 'none'
+                        }}
+                    />
+                )}
+                {canScrollRight && (
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: 0,
+                            bottom: 0,
+                            right: 0,
+                            width: '20px',
+                            background: 'linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0))',
+                            zIndex: 1,
+                            pointerEvents: 'none'
+                        }}
+                    />
                 )}
             </Box>
         </Paper>
